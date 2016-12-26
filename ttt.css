@@ -1,0 +1,42 @@
+button {
+	height: 60px;
+	width: 150px;
+	font-size: 40px;
+	display: block;
+	background-color: lightblue;
+	border:5px solid black;
+	margin: auto;
+}
+
+button:hover {
+	background-color: white;
+	-webkit-transition: background-color 1s;
+	transition: background-color 1s;
+}
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	margin: 10px auto;
+	vertical-align: middle;
+}
+
+td {
+	border: 10px solid black;
+	height:100px;
+	width: 100px;
+	text-align: center;
+	font-size: 0px;
+	font-family: monospace;
+	-webkit-transition: font-size 0.5s;
+	transition: font-size 0.5s;
+}
+
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Chrome/Safari/Opera */
+	-khtml-user-select: none; /* Konqueror */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently	not supported by any browser */
+}
