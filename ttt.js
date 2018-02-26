@@ -13,7 +13,9 @@ $(document).ready(function() {
 	});
 });
 
+/* Handles square click. */
 function clicked(square) {
+	// Make move if square is empty and game hasn't been won yet.
 	if (!$(square).html() && !won) {
 		$(square).text(player ? "X" : "O");
 		$(square).css({"font-size": "80px" , "background-color": "white"});
@@ -22,12 +24,14 @@ function clicked(square) {
 	}  
 }
 
+/* Checks whether a player has won. */
 function checkWin() {
 	checkRow();
 	checkCol();
 	checkDiagonal();
 }
 
+/* Checks whether any row is complete. */
 function checkRow() {
 	$('tr').each(function() {
 		var cells = $(this).find("td");
@@ -35,6 +39,7 @@ function checkRow() {
 	});
 }
 
+/* Checks whether any column is complete. */
 function checkCol() {
 	for (var i = 0; i < 3; i++) {
 		var cells = $("td.col" + i);
@@ -42,6 +47,7 @@ function checkCol() {
 	}
 }
 
+/* Checks whether any diagonal is complete. */
 function checkDiagonal() {
 	for (var i = 1; i < 3; i++) {
 		var cells = $("td.diag" + i);
@@ -49,7 +55,7 @@ function checkDiagonal() {
 	}
 }
 
-/* If game has been won, terminate game and announce winner. */
+/* If game has been won, terminates game and announces winner. */
 function isWon(cells) {
 	if (cells[0].innerHTML !== "" && cells[0].innerHTML === cells[1].innerHTML
 		 && cells[0].innerHTML === cells[2].innerHTML) {
