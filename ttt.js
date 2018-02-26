@@ -1,8 +1,8 @@
 var player = true;
 var won = false;
 
-/* Square is grey on hover if it can be occupied (i.e. free and game hasn't finished). */
 $(document).ready(function() {
+	/* Square is grey on hover if it can be occupied (i.e. free and game hasn't finished). */
 	$("td").hover(function() {
 		if(!won && $(this).is(':empty')){
 			$(this).css("background-color", "lightgrey");    
@@ -11,18 +11,19 @@ $(document).ready(function() {
 	$("td").mouseleave(function() {
 		$(this).css("background-color", "white");
 	});
+	
+	/* Handles square click. */
+	$("td").on("click", function() {
+		var $square = $(this);
+		// Make move if square is empty and game hasn't been won yet.
+		if (!$square.html() && !won) {
+			$square.text(player ? "X" : "O");
+			$square.css({"font-size": "80px" , "background-color": "white"});
+			player = !player;
+			checkWin();
+		}  
+	});
 });
-
-/* Handles square click. */
-function clicked(square) {
-	// Make move if square is empty and game hasn't been won yet.
-	if (!$(square).html() && !won) {
-		$(square).text(player ? "X" : "O");
-		$(square).css({"font-size": "80px" , "background-color": "white"});
-		player = !player;
-		checkWin();  
-	}  
-}
 
 /* Checks whether a player has won. */
 function checkWin() {
