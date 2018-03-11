@@ -6,10 +6,12 @@ $(document).ready(function() {
 	$("td").hover(function() {
 		if(!won && $(this).is(':empty')){
 			$(this).css("background-color", "lightgrey");    
+			$(this).css("cursor", "pointer");    
 		}
 	});
 	$("td").mouseleave(function() {
 		$(this).css("background-color", "white");
+		$(this).css("cursor", "");
 	});
 	
 	/* Handles square click. */
